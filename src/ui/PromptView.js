@@ -1,5 +1,6 @@
 import { state } from "../engine/state.js";
-import { currentPrompt, recordResponse } from "../engine/navigator.js";
+import { currentPrompt, recordResponse, startAssessment } from "../engine/navigator.js";
+
 
 export function render() {
   const app = document.getElementById("app");
@@ -47,10 +48,12 @@ export function render() {
       </div>
     `;
 
-    document.getElementById("begin").onclick = () => {
-      state.started = true;
-      render();
-    };
+  document.getElementById("begin").onclick = () => {
+    state.started = true;
+    startAssessment();
+    render();
+  };
+
 
     return;
   }

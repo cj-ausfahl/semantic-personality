@@ -7,11 +7,25 @@ export const phases = [
         id: "spatial",
         order: "random",
         prompts: [
-          "Weight",
-          "Distance",
-          "Edge",
-          "Boundary",
-          "Containment"
+          // Anchors (pull towards containment)
+            "Boundary",
+            "Containment",
+            "Limit",
+            "Hold",
+
+          // Contrast (loss of containment)
+            "Exposure",
+            "Leak",
+            "Overflow",
+
+          // Thresholds (at the edge of containment)
+            "Edge",
+            "Breach",
+            "Threshold",
+
+          // Protection (preserving containment)
+            "Guard",
+            "Shield"
         ]
       },
       {

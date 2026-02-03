@@ -7,9 +7,9 @@ export function render() {
 
   // INTRO SCREEN
   if (!state.started) {
+    console.log("Rendering Prompt:", prompt)
     app.innerHTML = `
       <div style="max-width:700px;margin:60px auto;line-height:1.6;">
-      console.log("Rendering Prompt:", prompt)
         <h1>Semantic Personality Assessment</h1>
 
         <p>

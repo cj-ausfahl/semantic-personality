@@ -26,7 +26,7 @@ export function render() {
           There are no correct or incorrect answers.
           Do not overthink or revise your responses.
           Simply respond. Even if the reaction seems 
-          unrealted or absurd. 
+          unrelated or absurd. 
         </p>
 
         <p>

@@ -1,6 +1,6 @@
 import { state } from "../engine/state.js";
 import { currentPrompt, recordResponse, startAssessment } from "../engine/navigator.js";
-
+import { analyze } from "../engine/analyzer.js";
 
 export function render() {
   const app = document.getElementById("app");
@@ -63,7 +63,6 @@ export function render() {
   const prompt = currentPrompt();
 
   if (!prompt) {
-    import { analyze } from "../engine/analyzer.js";
     const analysis = analyze(state.responses);
     console.log("ANALYSIS RESULT:", analysis);
 

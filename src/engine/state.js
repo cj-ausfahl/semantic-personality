@@ -1,7 +1,6 @@
 export const state = {
   started: false,
-  phase: 1,
-  index: 0,
-  sequence: [],
+  sequence: [],     // flattened prompt sequence
+  cursor: 0,
   responses: []
 };

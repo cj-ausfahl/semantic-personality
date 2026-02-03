@@ -1,12 +1,66 @@
+import { state } from "../engine/state.js";
 import { currentPrompt, recordResponse } from "../engine/navigator.js";
 
 export function render() {
   const app = document.getElementById("app");
+
+  // INTRO SCREEN
+  if (!state.started) {
+    app.innerHTML = `
+      <div style="max-width:700px;margin:60px auto;line-height:1.6;">
+        <h1>Semantic Personality Assessment</h1>
+
+        <p>
+          This is a reflective assessment designed to explore how you
+          respond to concepts, not how you evaluate yourself. The goal
+          is to evaluate your psyche while avoiding self bias.
+        </p>
+
+        <p>
+          You will be shown a series of single words, one at a time.
+          For each, respond with the <strong>first word</strong> that
+          comes to mind.
+        </p>
+
+        <p>
+          There are no correct or incorrect answers.
+          Do not overthink or revise your responses.
+          Simply respond. Even if the reaction seems 
+          unrealted or absurd. 
+        </p>
+
+        <p>
+          The assessment will end automatically.
+          You will not be shown progress indicators.
+          Please begin when you are ready. 
+        </p>
+
+        <button id="begin"
+          style="
+            margin-top:30px;
+            padding:12px 24px;
+            font-size:1rem;
+            cursor:pointer;
+          ">
+          Begin
+        </button>
+      </div>
+    `;
+
+    document.getElementById("begin").onclick = () => {
+      state.started = true;
+      render();
+    };
+
+    return;
+  }
+
+  // ASSESSMENT SCREEN
   const prompt = currentPrompt();
 
   if (!prompt) {
     app.innerHTML = `
-      <div style="max-width:600px;margin:40px auto;text-align:center;">
+      <div style="max-width:600px;margin:60px auto;text-align:center;">
         <h2>Assessment complete</h2>
       </div>
     `;
@@ -14,10 +68,14 @@ export function render() {
   }
 
   app.innerHTML = `
-    <div style="max-width:600px;margin:40px auto;">
+    <div style="max-width:600px;margin:60px auto;">
       <h1>${prompt}</h1>
-      <input id="answer" autofocus autocomplete="off"
-        style="width:100%;font-size:1.2rem;padding:8px;" />
+      <input
+        id="answer"
+        autofocus
+        autocomplete="off"
+        style="width:100%;font-size:1.2rem;padding:8px;"
+      />
     </div>
   `;
 

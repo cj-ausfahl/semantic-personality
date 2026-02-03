@@ -61,6 +61,15 @@ export function render() {
 
   // ASSESSMENT SCREEN
   const prompt = currentPrompt();
+  if (!prompt) {
+    app.innerHTML = `
+      <div style="max-width:600px;margin:60px auto;text-align:center;">
+        <h2>Assessment complete</h2>
+        <p>You may now close this window.</p>
+      </div>
+    `;
+    return;
+  }
 
   if (!prompt) {
     const analysis = analyze(state.responses);

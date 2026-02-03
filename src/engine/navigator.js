@@ -50,7 +50,12 @@ export function recordResponse(word) {
     ...item,
     response: word,
     timestamp: Date.now()
+    
   });
 
+  localStorage.setItem(
+    "spa_responses",
+    JSON.stringify(state.responses)
+  );
   state.cursor++;
 }

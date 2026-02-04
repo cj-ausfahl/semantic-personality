@@ -70,7 +70,7 @@ const ADJECTIVE_LIKE = new Set([
   "purple", "blue", "red", "green",
   "strong", "weak", "big", "small",
   "safe", "unsafe", "careful", "sudden",
-  "slow", "fast", "quiet", "loud", "yellow"
+  "slow", "fast", "quiet", "loud", "yellow",
   "black", "white", "pink", "hot", "cold"
 ]);
 

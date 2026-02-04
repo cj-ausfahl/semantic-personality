@@ -50,7 +50,6 @@ export function recordResponse(word) {
     const semanticHead = extractSemanticHead(word);
 
     state.responses.push({
-      console.log("RAW → HEAD:", word, "→", semanticHead);
       ...item,
       raw: word,
       response: semanticHead,

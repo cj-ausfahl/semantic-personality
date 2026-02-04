@@ -59,8 +59,8 @@ export function render() {
   }
 
   // ASSESSMENT SCREEN
-  const prompt = currentPrompt();
-  if (!prompt) {
+  const promptItem = currentPrompt();
+  if (!promptItem) {
     app.innerHTML = `
       <div style="max-width:600px;margin:60px auto;text-align:center;">
         <h2>Assessment complete</h2>
@@ -70,7 +70,7 @@ export function render() {
     return;
   }
 
-  if (!prompt) {
+  if (!promptItem) {
     const analysis = analyze(state.responses);
     console.log("ANALYSIS RESULT:", analysis);
 
@@ -84,7 +84,7 @@ export function render() {
 
   app.innerHTML = `
     <div style="max-width:600px;margin:60px auto;">
-      <h1>${prompt.prompt}</h1>
+      <h1>${prompt.promptItem}</h1>
       <input
         id="answer"
         autofocus

@@ -84,7 +84,7 @@ export function render() {
 
   app.innerHTML = `
     <div style="max-width:600px;margin:60px auto;">
-      <h1>${prompt.promptItem}</h1>
+      <h1>${promptItem.prompt}</h1>
       <input
         id="answer"
         autofocus

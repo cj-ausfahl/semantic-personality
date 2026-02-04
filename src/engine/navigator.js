@@ -1,6 +1,8 @@
 import { state } from "./state.js";
 import { phases } from "../data/phases.js";
 import { shuffle } from "./shuffle.js";
+import { extractSemanticHead } from "./extractSemanticHead.js";
+
 
 function buildSequence() {
   const independent = phases.filter(p => p.type === "independent");
@@ -45,13 +47,16 @@ export function currentPrompt() {
 export function recordResponse(word) {
   const item = currentPrompt();
   if (!item) return;
+    const semanticHead = extractSemanticHead(word);
 
-  state.responses.push({
-    ...item,
-    response: word,
-    timestamp: Date.now()
-    
-  });
+    state.responses.push({
+      console.log("RAW → HEAD:", word, "→", semanticHead);
+      ...item,
+      raw: word,
+      response: semanticHead,
+      timestamp: Date.now()
+    });
+
 
   localStorage.setItem(
     "spa_responses",
